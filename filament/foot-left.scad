@@ -1,4 +1,8 @@
 thickness = 5;
+foot_width = 100;
+foot_length = 40;
+connector_offset = 0.5;
+connector_length = 10;
 
 rotate(90) {
 difference() {
@@ -7,12 +11,12 @@ difference() {
 }
 
 translate([-25,0,0]) {
-	cube([100, thickness, 50]);
+	cube([foot_width, thickness, foot_length]);
 
 	for ( i = [0 : 3] ) {
-		translate([i*25,0,50]) {
-			cube([12,thickness/2,10]);
-			translate([12.5,thickness/2,0]) {cube([12,thickness/2,10]);}
+		translate([i*25,0,foot_length]) {
+			translate([connector_offset,0,0]) {cube([foot_width / 8 - (2 * connector_offset),thickness/2 - connector_offset,connector_length]);}
+			translate([foot_width / 8 + connector_offset,thickness/2+connector_offset,0]) {cube([foot_width / 8 - (2 * connector_offset),thickness/2 - connector_offset,connector_length]);}
 		}
 	}
 }
@@ -27,4 +31,16 @@ difference() {
 		}
 	}
 }
+
+difference() {
+	translate([0,5,5]) {cube([5,20,10]);}
+	for (i = [[0,15,10]]) {
+		translate(i) {
+			rotate([0,90]) {
+				cylinder(thickness, r=2);
+			}
+		}
+	}
+}
+
 }
