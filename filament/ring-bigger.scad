@@ -18,13 +18,13 @@ difference() {
 translate([0,0,outter_depth]) {
 	difference() {
 		cylinder(inner_depth, r=inner_radius);
-		cylinder(inner_depth, r=3);
+		cylinder(inner_depth, r=hole_radius);
 	}
 }
 
 translate([0,0,outter_depth + inner_depth]) {
 	difference() {
 		metric_thread(2 * inner_radius + 3, 3, thread_depth);
-		cylinder(20, r=3);
+		cylinder(20, r=hole_radius);
 	}
 }
