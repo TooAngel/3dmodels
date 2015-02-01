@@ -1,11 +1,30 @@
-inner_radius = 25;
+include <../threads.scad>
+
+// PLA: 19
+inner_radius = 19;
+// PLA: 6
+inner_depth = 6;
+outter_radius = inner_radius + 7;
+outter_depth = 6;
+hole_radius = 3;
+thread_depth = 3;
+
 
 difference() {
-	union() {
-		cylinder(6, r=inner_radius + 7);
-		translate([0,0,6]) {
-			cylinder(6, r=inner_radius);
-		}
+	cylinder(outter_depth, r=outter_radius);
+	cylinder(outter_depth, r=hole_radius);
+}
+
+translate([0,0,outter_depth]) {
+	difference() {
+		cylinder(inner_depth, r=inner_radius);
+		cylinder(inner_depth, r=3);
 	}
-	cylinder(12, r=3);
+}
+
+translate([0,0,outter_depth + inner_depth]) {
+	difference() {
+		metric_thread(2 * inner_radius + 3, 3, thread_depth);
+		cylinder(20, r=3);
+	}
 }
