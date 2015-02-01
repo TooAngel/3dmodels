@@ -8,6 +8,7 @@ rotate(90) {
 difference() {
 	cube([50, 150, thickness]);
 	translate([25,130,0]) {cylinder(thickness, r=7);}
+	translate([0,130,0]) {cube([20, 5, thickness]);}
 }
 
 translate([-25,0,0]) {
