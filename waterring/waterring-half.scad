@@ -1,14 +1,14 @@
 pinoepel = 8;
 radius = 50;
-thickness = 4;
-pipe = 5;
+thickness = 6;
+pipe = 6;
 pipe_height=10;
-connector_thickness = 2;
+connector_thickness = 4;
 connector_length = 10;
 holes = radius - (1.5 * thickness);
 
 
-
+// outter pipe
 difference() {
 	cylinder(pipe_height, r=radius);
 	cylinder(pipe_height, r=radius-thickness);
@@ -16,6 +16,7 @@ difference() {
 translate([radius/2 - pipe_height,radius-12,pipe_height/2]) {rotate([0,90,0]) {cylinder(25, r=pipe_height/2);}}
 }
 
+// inner pipe
 difference() {
 	cylinder(pipe_height, r=radius - (thickness + pipe));
 	cylinder(pipe_height, r=radius - (2 * thickness + pipe));
@@ -69,23 +70,25 @@ difference() {
 }
 
 // connector
+// outter pipe
 difference() {
-	cylinder(5, r=radius + connector_thickness);
-	cylinder(5, r=radius);
+	cylinder(pipe_height, r=radius + connector_thickness);
+	cylinder(pipe_height, r=radius);
 	rotate(22.5) {translate([-radius-connector_length, -radius-connector_thickness,0])cube([radius + connector_thickness,2*(radius+connector_thickness),50]);}
       rotate(22.5) {translate([connector_length, -radius-connector_thickness,0])cube([radius + connector_thickness,2*(radius + connector_thickness),50]);}
 	rotate(22.5) {translate([-radius,0,0]) cube([2*(radius+connector_thickness), radius+connector_thickness,50]);}
 }
 
+// inner pipe
 difference() {
-	cylinder(5, r=radius - (2 * thickness + pipe));
-	cylinder(5, r=radius - (2 * thickness + pipe) - connector_thickness);
+	cylinder(pipe_height, r=radius - (2 * thickness + pipe));
+	cylinder(pipe_height, r=radius - (2 * thickness + pipe) - connector_thickness);
 	rotate(22.5) {translate([-radius-connector_length, -radius-connector_thickness,0])cube([radius + connector_thickness,2*(radius+connector_thickness),50]);}
       rotate(22.5) {translate([connector_length, -radius-connector_thickness,0])cube([radius + connector_thickness,2*(radius + connector_thickness),50]);}
 	rotate(22.5) {translate([-radius,0,0]) cube([2*(radius+connector_thickness), radius+connector_thickness,50]);}
 }
 
-translate([0,0,5]) {
+translate([0,0,pipe_height]) {
 difference() {
 	cylinder(10, r1=radius + connector_thickness, r2=radius-thickness + connector_thickness);
 	cylinder(10, r1=radius, r2=radius-thickness);
