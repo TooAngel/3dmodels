@@ -3,12 +3,13 @@ foot_width = 100;
 foot_length = 40;
 connector_offset = 0.5;
 connector_length = 10;
+hole_opener_height = 5;
 
 rotate(90) {
 difference() {
 	cube([50, 150, thickness]);
 	translate([25,130,0]) {cylinder(thickness, r=7);}
-	translate([0,130,0]) {cube([20, 5, thickness]);}
+	translate([0,130-(hole_opener_height/2),0]) {cube([20, hole_opener_height, thickness]);}
 }
 
 translate([-25,0,0]) {
