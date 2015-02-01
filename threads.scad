@@ -11,7 +11,7 @@
  */
 
 // Examples:
-metric_thread(8, 1, 4);
+//metric_thread(8, 1, 4);
 //english_thread(1/4, 20, 1);
 
 // Rohloff hub thread:
