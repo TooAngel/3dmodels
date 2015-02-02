@@ -7,7 +7,7 @@ inner_depth = 6;
 outter_radius = inner_radius + 7;
 outter_depth = 6;
 hole_radius = 3;
-thread_depth = 3;
+thread_depth = 12;
 
 
 difference() {
@@ -24,7 +24,7 @@ translate([0,0,outter_depth]) {
 
 translate([0,0,outter_depth + inner_depth]) {
 	difference() {
-		metric_thread(2 * inner_radius + 3, 3, thread_depth);
+		metric_thread(2 * inner_radius + 3, thread_depth, thread_depth);
 		cylinder(20, r=hole_radius);
 	}
 }
