@@ -9,4 +9,4 @@ difference() {
 }
 cube([frame_width + (2 * frame_thick),20,frame_thick]);
 
-translate([0,10,0]) {rotate([45,0,0]) {cube([frame_width + (2 * frame_thick),back_height,2]);}}
+translate([0,20,0]) {rotate([70,0,0]) {cube([frame_width + (2 * frame_thick),back_height,4]);}}
