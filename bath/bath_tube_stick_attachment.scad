@@ -1,25 +1,24 @@
-radius=8;
-length_overlap=2;
-width_overlap=4;
+radius=9;
 height=10;
-top_offset=1;
-heel=1;
+
+top_border=2;
+heel_width=3;
+heel_height=3;
 
 difference() {
-	cube([3 * radius + length_overlap, 2 * radius + width_overlap, height]);
-	translate([3 * radius, radius + (width_overlap / 2), 0]) {cylinder(height, r=radius);}
-	translate([2 * radius, 0, 0]) { cube([heel, top_offset, height]);}
-	translate([2 * radius, 2 * radius + width_overlap - heel, 0]) { cube([heel, top_offset, height]);}
+	cube([3 * radius, 2 * radius + 2 * heel_height, height]);
+	translate([3 * radius, radius + heel_height, 0]) {cylinder(height, r=radius);}
+	translate([2 * radius - heel_width, 0, 0]) { cube([heel_width, heel_height, height]);}
+	translate([2 * radius - heel_width, 2 * radius + heel_height, 0]) { cube([heel_width, heel_height, height]);}
 }
 
 
-translate([2 * radius, 3 * radius + (2 * width_overlap), 0]) {
+translate([2 * radius - heel_width, 3 * radius + (2 * heel_height), 0]) {
 	difference() {
-		cube([2 * radius + length_overlap + 2 * top_offset, 2 * radius + width_overlap + 2 * top_offset, height + top_offset]);
-		translate([radius + top_offset + length_overlap/2, radius + top_offset + width_overlap/2, 0]) {cylinder(height + top_offset, r=radius);}
-		translate([top_offset, top_offset, top_offset]) {cube([radius + length_overlap, 2 * radius + width_overlap, height]);}
-
-
-		translate([0, top_offset + heel, top_offset]) {cube([top_offset, 2 * radius + width_overlap - 2 * heel, height]);}
+		cube([2 * radius + 2 * top_border + heel_width, 2 * radius + 2 * heel_height + 2 * top_border, height + top_border]);
+		translate([radius + top_border + heel_width, radius + top_border + heel_height, 0]) {cylinder(height + top_border, r=radius);}
+		translate([0, top_border + heel_height, 0]) {cube([radius + top_border + heel_width, 2 * radius, height + top_border]);}
+		translate([heel_width, top_border, top_border]) {cube([radius + heel_width, 2 * radius + 2 * heel_height, height]);}
+		translate([0, top_border + heel_height, top_border]) {cube([heel_width, 2 * radius - heel_height, height]);}
 	}
 }
