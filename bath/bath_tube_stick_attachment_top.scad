@@ -5,12 +5,12 @@ top_border=2;
 heel_width=3;
 heel_height=3;
 
-holder_length = 200;
+holder_length = 180;
 holder_width = 100;
 border = 2;
 bottom_thickness=4;
 
-rows = 10;
+rows = 8;
 columns = 5;
 
 translate([2 * radius - heel_width, 3 * radius + (2 * heel_height), 0]) {
