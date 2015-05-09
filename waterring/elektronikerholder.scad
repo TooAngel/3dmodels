@@ -27,12 +27,12 @@ sensor_height=40;
 
 thickness=2;
 
-motor_bed_position_length=20;
+motor_bed_position_length=15;
 motor_bed_position_width=5;
 motor_bed_length=30;
 motor_bed_width=30;
-motor_bed_height=24;
-motor_bed_height_lower=30;
+motor_bed_height=19;
+motor_bed_height_lower=25;
 motor_diameter=28;
 
 difference() {
