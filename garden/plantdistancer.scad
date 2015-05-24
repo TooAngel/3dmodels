@@ -6,7 +6,7 @@ outter_diameter = diameter + 2 * thickness;
 
 cube([distance, thickness, thickness]);
 
-translate([-outter_diameter/2, thickness/2, 0]) {
+translate([-diameter/2, thickness/2, 0]) {
     difference() {
         cylinder(thickness, r=outter_diameter/2);
         cylinder(thickness, r=diameter/2);
@@ -14,7 +14,7 @@ translate([-outter_diameter/2, thickness/2, 0]) {
     }
 }
 
-translate([distance + outter_diameter/2, thickness/2, 0]) {
+translate([distance + diameter/2, thickness/2, 0]) {
     difference() {
         cylinder(thickness, r=outter_diameter/2);
         cylinder(thickness, r=diameter/2);
