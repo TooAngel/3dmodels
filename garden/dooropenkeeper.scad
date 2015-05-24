@@ -1,8 +1,8 @@
-open = 78;
+open = 70; //78;
 
-length = 60;
+length = 80;
 thickness = 3;
-height = 10;
+height = 30;
 radius = 10;
 
 // sin alpha = opposite / hyperthenuse
