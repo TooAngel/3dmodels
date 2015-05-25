@@ -14,4 +14,7 @@ difference() {
     cube([length, thickness, height]);    
 }
 translate([radius-thickness, thickness, 0]) rotate([0, 0, alpha]) cube([length, thickness, height]);
-translate([radius-thickness, -thickness, 0]) rotate([0, 0, -alpha]) cube([length, thickness, height]);
+difference() {
+    translate([radius-thickness, -thickness, 0]) rotate([0, 0, -alpha]) cube([length, thickness, height]);
+    translate([radius + 0.2 * thickness, -1 * thickness, 1]) rotate([90, 0, -alpha]) linear_extrude(thickness) text("TooAngel Design", size=4, font="Deftone Stylus:style=Regular");
+}
