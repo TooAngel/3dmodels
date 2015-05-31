@@ -1,5 +1,5 @@
-accus = 5;
-gradient = 20;
+accus = 10;
+gradient = 10;
 accu_diameter = 18; 
 accu_length = 67; // 65 plus padding
 thickness = 2;
