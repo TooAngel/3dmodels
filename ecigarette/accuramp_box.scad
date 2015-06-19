@@ -42,8 +42,8 @@ translate([-2 * thickness, (accu_length + 2 * thickness) / 2 - hook_length / 2, 
 
 
 difference() {
-    cube([case_length + 2 * thickness, accu_length + 2 * thickness, back_height]);
-    translate([thickness, thickness, 0]) cube([case_length, accu_length, back_height]);
+    cube([case_length + 2 * thickness, accu_length + 2 * thickness, back_height - (3 * thickness)]);
+    translate([thickness, thickness, 0]) cube([case_length, accu_length, back_height - (3 * thickness)]);
     
     // hole for hook
     translate([case_length + thickness, (accu_length + 2 * thickness) / 2 - hook_length / 2, 0]) cube([thickness, hook_length, thickness]);
@@ -53,8 +53,11 @@ difference() {
 }
 
 // frame
-translate([thickness, thickness, back_height - thickness])
+translate([thickness, thickness, 0])
 difference() {
-    cube([case_length, accu_length, 3 * thickness]);
-    translate([thickness, thickness, 0]) cube([case_length - 2 * thickness, accu_length - 2 * thickness, 3 * thickness]);
+    cube([case_length, accu_length, back_height]);
+    translate([thickness, thickness, 0]) cube([case_length - 2 * thickness, accu_length - 2 * thickness, back_height]);
+    
+    // hole for hook
+    translate([case_length - thickness, (accu_length + 2 * thickness) / 2 - hook_length / 2 - thickness, 0]) cube([thickness, hook_length, 3 * thickness]);
 }
