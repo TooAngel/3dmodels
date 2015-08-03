@@ -5,3 +5,4 @@ difference() {
     translate([1, 6, 0]) cube([10, 3, 2.5]);
     translate([4.5, 2.5, 0]) cube([3, 10, 2.5]);
 }
+translate([19, 0, 0]) cube([7, 15, 4.5]);
