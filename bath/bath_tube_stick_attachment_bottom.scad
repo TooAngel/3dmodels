@@ -5,7 +5,7 @@ top_border=2;
 heel_width=3;
 heel_height=3;
 
-holder_length = 180;
+holder_length = 160;
 holder_width = 100;
 border = 4;
 bottom_thickness=6;
