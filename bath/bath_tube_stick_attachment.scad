@@ -1,4 +1,4 @@
-radius=9;
+radius=11;
 height=10;
 
 top_border=2;
