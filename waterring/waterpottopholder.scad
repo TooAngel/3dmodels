@@ -1,2 +1,2 @@
-cube([100, 100, 10]);
-translate([50, 50, 0]) cylinder(100, r=20);
+cube([12, 12, 1.2]);
+translate([6, 6, 0]) cylinder(12, r=2);

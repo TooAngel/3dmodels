@@ -1,4 +1,4 @@
-hole_radius = 12;
+hole_radius = 14; //12 for small bottles
 hole_height = 18;
 height = 20;
 distance = 1;
