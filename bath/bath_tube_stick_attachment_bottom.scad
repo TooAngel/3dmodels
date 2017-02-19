@@ -1,16 +1,16 @@
 radius=11;
-height=30;
+height=10; //30;
 
 top_border=2;
 heel_width=3;
 heel_height=3;
 
-holder_length = 160;
+holder_length = 140;
 holder_width = 100;
 border = 4;
 bottom_thickness=6;
 
-rows = 8;
+rows = 7;
 columns = 5;
 
 translate([2 * radius - heel_width, 3 * radius + (2 * heel_height), 0]) {
@@ -32,6 +32,7 @@ difference() {
 	translate([1 * radius - heel_width, 2 * radius + heel_height, 0]) { cube([heel_width, heel_height, height]);}
 }
 
+/*
 translate([-holder_length - 2 * border + holder_width/rows, -holder_width/2 + (2 * radius + 2 * heel_height)/2 - 2 * border + holder_width/rows, 0]) {
 	difference() {
 		minkowski() {
@@ -50,6 +51,6 @@ translate([-holder_length - 2 * border + holder_width/rows, -holder_width/2 + (2
 			}
 		}
 	}
-}
+}*/
 }
 }
