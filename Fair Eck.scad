@@ -1,7 +1,7 @@
-rotate([0, 180, 0]) difference() {
+difference() {
  cylinder(1, r=45);
- translate([-20, 1, 0]) linear_extrude(1) text("Fair", size=15, font="CutOutsFLF:style=Regular");
- translate([-20, - 16, 0])  linear_extrude(1) text("Eck", size=15, font="CutOutsFLF:style=Regular");
+ translate([-30, 1, 0]) linear_extrude(1) text("FAIR", size=18, font="CutOutsFLF:style=Regular");
+ translate([-26, - 22, 0])  linear_extrude(1) text("ECK", size=18, font="CutOutsFLF:style=Regular");
 }
 
 difference() {
