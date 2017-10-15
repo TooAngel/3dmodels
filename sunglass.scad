@@ -8,7 +8,7 @@ rest_height = 4 - (2 * minsky_sphere);
 rest_length = 100;
 
 rest_outter_radius = 150;
-rest_inner_radius = 200;
+rest_inner_radius = 210;
 rest_length = 140;
 
 rest_thickness = 10;
@@ -33,15 +33,12 @@ translate([-holder_length, 0, 0])  {
 module drawBehindEarThingy() {
     difference() {
         translate([0, side * (rest_outter_radius - rest_thickness + holder_radius + minsky_sphere), 0]) cylinder(rest_height, r=rest_outter_radius, $fa=2);
-        
+ 
         translate([0, side * (rest_inner_radius + holder_radius - minsky_sphere), 0]) cylinder(rest_height, r=rest_inner_radius, $fa=2);
-        
-        rotate([0, 0, side * ankle]) translate([-2 * rest_inner_radius, - rest_thickness + holder_radius , -minsky_sphere]) cube([2*rest_inner_radius, 2 * rest_inner_radius, rest_height + (2 * minsky_sphere)]);
-    }
+           
+        rotate([0, 0, side * ankle]) translate([-2 * rest_inner_radius, - rest_thickness + holder_radius - rest_inner_radius, -minsky_sphere]) cube([2*rest_inner_radius, 2 * rest_inner_radius, rest_height + (2 * minsky_sphere)]);
+   }
 }
-
-        
-   
 
 $fn=60;
 minkowski() {
