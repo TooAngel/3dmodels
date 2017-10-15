@@ -1,3 +1,9 @@
+/*
+ * Toy car cover  (C) by Tobias Wilken
+ *
+ * With a hole for some kind of motor
+ */
+
 rotate([-90,0,0]) {
 
 difference() {

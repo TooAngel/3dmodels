@@ -1,3 +1,7 @@
+/*
+ * Handy holder for the top of a display (C) by Tobias Wilken
+ */
+
 length = 70;
 monitor_width = 12;
 monitor_height = 20;

@@ -1,3 +1,7 @@
+/*
+ * Watch band (C) by Tobias Wilken
+ */
+
 diameter = 55;
 height = 19;
 

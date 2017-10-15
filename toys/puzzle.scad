@@ -1,3 +1,9 @@
+/*
+ * Puzzle piece (C) by Tobias Wilken
+ *
+ * Printed in black and white can be used as chess board
+ */
+
 width= 50;
 length = 50;
 height = 1;

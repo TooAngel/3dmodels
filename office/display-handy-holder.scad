@@ -1,3 +1,7 @@
+/*
+ * Handy holder for the top of a display (C) by Tobias Wilken
+ */
+
 length = 90;
 monitor_width = 20;
 monitor_height = 20;
@@ -14,4 +18,3 @@ difference() {
      translate([2 * thickness, 6, 10]) rotate([-90, 0,  90]) linear_extrude(3 * thickness) text("TooAngel Design", size=8, font="Deftone Stylus:style=Regular");
     translate([monitor_width, length -6, 10]) rotate([-90, 0,  -90]) linear_extrude(3 * thickness) text("TooAngel Design", size=8, font="Deftone Stylus:style=Regular");
 }
-

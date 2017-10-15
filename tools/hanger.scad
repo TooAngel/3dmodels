@@ -1,3 +1,7 @@
+/*
+ * Child hanger (C) by Tobias Wilken
+ */
+ 
 thickness = 5;
 width = 100;
 curve_radius = 20;

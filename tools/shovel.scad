@@ -1,3 +1,7 @@
+/*
+ * Shovel (C) by Tobias Wilken
+ */
+ 
 frontRadius=20;
 thickness=2;
 frontLength=50;

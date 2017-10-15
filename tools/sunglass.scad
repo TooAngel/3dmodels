@@ -1,3 +1,7 @@
+/*
+ * Holder for glasses (C) by Tobias Wilken
+ */
+ 
 holder_height = 2;
 holder_radius = 2.5;
 holder_hole_radius = 1.2;

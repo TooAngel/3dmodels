@@ -1,4 +1,8 @@
-include <../threads.scad>
+/*
+ * Threaded holder for the top of a display (C) by Tobias Wilken
+ */
+
+ include <lib/threads.scad>
 
 inner_radius = 10;
 height = 20;
