@@ -2,6 +2,6 @@
  * Simple ball (C) by Tobias Wilken
  */
 
-radius = 10;
+radius = 17.5;
 
 sphere(r=radius);

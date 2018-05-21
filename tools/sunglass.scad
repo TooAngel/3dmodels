@@ -12,12 +12,12 @@ rest_height = 4 - (2 * minsky_sphere);
 rest_length = 100;
 
 rest_outter_radius = 150;
-rest_inner_radius = 210;
+rest_inner_radius = 180; //210;
 rest_length = 140;
 
 rest_thickness = 10;
 
-side = 1; // Left: 1, Right: -1
+side = -1; // Left: 1, Right: -1
 ankle = 20;
 
 // holder
