@@ -11,8 +11,8 @@ minsky_sphere = 1;
 rest_height = 4 - (2 * minsky_sphere);
 rest_length = 100;
 
-rest_outter_radius = 150;
-rest_inner_radius = 180; //210;
+rest_outter_radius = 140;
+rest_inner_radius = 170; //210;
 rest_length = 140;
 
 rest_thickness = 10;
