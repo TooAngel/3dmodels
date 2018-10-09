@@ -1,5 +1,5 @@
 hole_radius = 12;
-hole_height = 18;
+hole_height = 19;
 height = 20;
 distance = 1;
 
