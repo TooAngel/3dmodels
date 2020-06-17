@@ -17,7 +17,7 @@ rest_length = 140;
 
 rest_thickness = 10;
 
-side = -1; // Left: 1, Right: -1
+side = 1; // Left: 1, Right: -1
 ankle = 20;
 
 // holder

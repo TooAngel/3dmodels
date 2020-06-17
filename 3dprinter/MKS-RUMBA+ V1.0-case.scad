@@ -1,7 +1,7 @@
 thickness = 3;
 
 boardLength = 140;
-boardLengthPadding = 1;
+boardLengthPadding = 2;
 
 boardLengthTotal = boardLength + 2 * boardLengthPadding + 2 * thickness;
 
@@ -22,7 +22,7 @@ bottomLeftWidth = 4;
 topRightLength = 138;
 topRightWidth = 36;
 
-usbConnectorWidth = 61;
+usbConnectorWidth = 63;
 usbPlugWidth = 12;
 usbPlugHeight = 12;
 
@@ -36,7 +36,7 @@ rightCabelInputPadding = 10;
 rightCabelInputWidth = 20;
 rightCabelInputHeight = 20;
 
-boarderThickness = 5;
+boarderThickness = 50;
 
 cableHolderWidth = 25;
 cableHolderHeight = 30;
@@ -48,7 +48,10 @@ cabHolderHeightOffset = 10;
 cabHolderLegthOffsetFirst = boardWidthTotal / 4 - cabHolderWidth / 2;
 cabHolderLegthOffsetSecond = 3 * boardWidthTotal / 4 - cabHolderWidth / 2;
 
-echo(cabHolderLegthOffsetFirst, cabHolderLegthOffsetSecond);
+airHoleRadius = 2;
+airHoleLengthDistance = 3;
+airHoleHeightPadding = 5;
+airHoleLengthPadding = 10;
 
 difference() {
     cube([boardLengthTotal, boardWidthTotal, boarderThickness]);
@@ -81,6 +84,13 @@ difference() {
      // CabHolder Top
     translate([boardLengthTotal - thickness, cabHolderLegthOffsetFirst, boarderThickness - cabHolderHeightOffset]) cube([thickness, cabHolderWidth, cabHolderHeight]);
     translate([boardLengthTotal - thickness, cabHolderLegthOffsetSecond, boarderThickness - cabHolderHeightOffset]) cube([thickness, cabHolderWidth, cabHolderHeight]);
+    
+    // Air holes
+    for (height = [1:3]) {
+        for (length = [1:17]) {
+            translate([airHoleLengthPadding + length * (airHoleLengthDistance + 2 * airHoleRadius), boardWidthTotal, airHoleHeightPadding + height * 6]) rotate([90, 0, 0]) cylinder(r=airHoleRadius, thickness);
+        }
+    }
 }
 
 // Drill bottom left hole
