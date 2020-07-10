@@ -1,13 +1,13 @@
-hole_radius = 12;
-hole_height = 19;
+hole_radius = 14; //12 for small bottles
+hole_height = 18;
 height = 20;
 distance = 1;
 
 holes_per_row = 4;
-holes_per_column = 4;
+holes_per_column = 2;
 
 size_row = holes_per_row * (2 * hole_radius) + (holes_per_row + 1) * distance;
-size_column = holes_per_column * (2 * hole_radius) + (holes_per_row + 1) * distance;
+size_column = holes_per_column * (2 * hole_radius) + (holes_per_column + 1) * distance;
 
 //size = 85;
 
