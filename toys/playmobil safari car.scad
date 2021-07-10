@@ -1,11 +1,8 @@
-$fn=180;
+ $fn=180;
 
 thickness = 2;
 
 // rest
-
-
-
 length_wheel = 40;
 
 
@@ -43,7 +40,6 @@ module axis() {
 }
 
 module back() {
-    //width = 84;
     wheel_width = 11;
     
     back_length = 1;
@@ -125,26 +121,26 @@ module back() {
     }
 }
 
-//back();
+back();
 
 module front() {
     seating_area_length = 7;
     
     steering_wheel_length = 9;
     steering_wheel_width = 9;
-    steering_wheel_height = 28;
+    steering_wheel_height = 32;
     steering_wheel_hole_diameter = 4.9;
     steering_wheel_y_offset = 52;
     
     connect_hole_length = 3;
     connect_hole_width = 12;
     
-    fender_height = 28;
+    fender_height = 26;
     
-    motor_length = 39;
+    motor_length = 37;
     motor_width = 54;
     
-    front_axis_x_offset = 20;
+    front_axis_x_offset = 15;
     front_axis_length = 13;
     front_axis_height = 8;
     front_axis_hole_height = 6;
@@ -173,14 +169,14 @@ module front() {
         cube([seating_area_length, width, thickness]);
         
         //connect hole
-        translate([steering_wheel_length - connect_hole_length, width / 2 - connect_hole_width / 2, 0]) cube([connect_hole_length, connect_hole_width, thickness]);
+        translate([steering_wheel_length - connect_hole_length - 1, width / 2 - connect_hole_width / 2, 0]) cube([connect_hole_length, connect_hole_width, thickness]);
     }
     translate([0, steering_wheel_y_offset, 0]) difference() {
         cube([steering_wheel_length, steering_wheel_width, steering_wheel_height]);
         translate([thickness, 0.5 * thickness, 0]) cube([steering_wheel_length - 1 * thickness, steering_wheel_width - 1 * thickness, steering_wheel_height]);
         
-        translate([0, steering_wheel_length / 2, 25]) rotate([0, 90, 0]) cylinder(d=steering_wheel_hole_diameter, 2 * steering_wheel_length);
-        translate([0, steering_wheel_length / 2 - steering_wheel_hole_diameter / 2, 25]) cube([2 * steering_wheel_length, steering_wheel_hole_diameter, 2 * steering_wheel_length]);
+        translate([0, steering_wheel_length / 2, 29]) rotate([0, 90, 0]) cylinder(d=steering_wheel_hole_diameter, 2 * steering_wheel_length);
+        translate([0, steering_wheel_length / 2 - steering_wheel_hole_diameter / 2, 29]) cube([2 * steering_wheel_length, steering_wheel_hole_diameter, 2 * steering_wheel_length]);
     }
     
     module frontWheels() {
@@ -195,7 +191,7 @@ module front() {
     translate([seating_area_length, 0, 0]) difference() {
         cube([motor_length + thickness, width, fender_height]);
         
-        translate([-seating_area_length + steering_wheel_length - connect_hole_length, width / 2 - connect_hole_width / 2, 0]) cube([connect_hole_length, connect_hole_width, thickness]);
+        translate([-seating_area_length + steering_wheel_length - connect_hole_length - 1, width / 2 - connect_hole_width / 2, 0]) cube([connect_hole_length, connect_hole_width, thickness]);
         
         // front wheels
         frontWheels();
@@ -211,15 +207,17 @@ module front() {
         
         translate([0, (width - motor_width) / 2, thickness]) cube([front_axis_x_offset - thickness, motor_width, fender_height]);
         
+        translate([front_axis_x_offset + front_axis_length + thickness, (width - motor_width) / 2, thickness]) cube([thickness, motor_width, fender_height]);
+        
         lights_y_offset = 9;
-        lights_z_offset = 20;
+        lights_z_offset = 23;
         
         // lights
         translate([motor_length, wheel_width + thickness + lights_y_offset, lights_z_offset]) rotate([0, 90, 0]) cylinder(d1=light_diameter_outter, d2=light_diameter_inner, thickness);
         translate([motor_length, wheel_width + motor_width + thickness - lights_y_offset, lights_z_offset]) rotate([0, 90, 0]) cylinder(d1=light_diameter_outter, d2=light_diameter_inner, thickness);
     }
      
-    translate([seating_area_length + motor_length, 0, radiator_y_offset]) {
+    translate([seating_area_length + motor_length + 2, 0, radiator_y_offset]) {
         difference() {
             cube([radiator_length, width, thickness]);
             translate([radiator_hole_x_offsets, width / 2 - radiator_hole_width / 2, 0]) cube([radiator_hole_length, radiator_hole_width, thickness]);
@@ -227,6 +225,16 @@ module front() {
     }
 }
 
-translate([100, 0, 0]) front();
+translate([100, 1, 0]) front();
 
+
+module middle() {
+    
+    width = 60;
+    depth = 82;
+    
+    cube([width, depth, thickness]);
+}
+
+translate([45, 0, 0]) middle();
 
