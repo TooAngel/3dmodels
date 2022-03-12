@@ -13,14 +13,14 @@ lower_height = 7;
 distancer_height = 5;
 
 big_diameter = 30;
-big_height = 3;
+big_height = 8;
 
 curving = 1;
 
 plug_inner_diameter = 9;
 
 connector_tube_outter_diameter = 10;
-connector_tube_outter_height = 4;
+connector_tube_outter_height = 10;
 connector_tube_inner_diameter = 6;
 connector_tube_height = 10;
 connector_tube_thickness = 1;
@@ -40,16 +40,21 @@ module plug_outter() {
     translate([0, 0, big_height + lower_height]) cylinder(d=plug_middle_diameter, distancer_height);
 
     translate([0, 0, big_height + lower_height + distancer_height]) translate([0, 0, curving]) minkowski() {
-        cylinder(d=plug_outter_diameter - 2 * curving, plug_top_height - 2 * curving);
+        cylinder(d1=plug_outter_diameter - 2 * curving, d2=8, 10);
         sphere(curving);
     }
+
+    //translate([0, 0, big_height + lower_height + distancer_height + 7]) translate([0, 0, curving]) minkowski() {
+      //  cylinder(d=plug_outter_diameter - 2 * curving, plug_top_height - 2 * curving - 8);
+        //sphere(curving);
+    //}
 }
 
 module plug() {
     difference() {
         plug_outter();
         cylinder(d=plug_inner_diameter, big_height + lower_height + distancer_height + plug_top_height);
-        translate([0, 0, big_height + lower_height + distancer_height + plug_top_height - upper_inline_ring_height]) torus(upper_inline_ring_diameter + 6, upper_inline_ring_height / 2);
+        translate([0, 0, big_height + lower_height + distancer_height + plug_top_height - upper_inline_ring_height + 1]) torus(upper_inline_ring_diameter + 6, upper_inline_ring_height / 2);
     }
     
 }
@@ -60,21 +65,21 @@ plug();
 module tube() {
     // base plate
     difference() {
-        cylinder(d=connector_tube_outter_diameter + connector_tube_thickness, connector_tube_thickness);
+        cylinder(d=big_diameter, connector_tube_thickness);
         cylinder(d=connector_tube_inner_diameter - connector_tube_thickness, connector_tube_height);
     }
     
     // outter tube
-    difference() {
-        cylinder(d=connector_tube_outter_diameter + connector_tube_thickness, connector_tube_outter_height);
+    translate([0, 0, connector_tube_thickness]) difference() {
+        cylinder(d1=big_diameter, d2=connector_tube_outter_diameter + connector_tube_thickness, connector_tube_outter_height);
         cylinder(d=connector_tube_outter_diameter, connector_tube_outter_height);
     }
     
     // inner tube
-    difference() {
-        cylinder(d=connector_tube_inner_diameter, connector_tube_height);
-        cylinder(d=connector_tube_inner_diameter - connector_tube_thickness, connector_tube_height);
-    }
+    //difference() {
+      //  cylinder(d=connector_tube_inner_diameter, connector_tube_height);
+        //cylinder(d=connector_tube_inner_diameter - connector_tube_thickness, connector_tube_height);
+    //}
 }
 
-//rotate([180, 0, 0]) tube();
+rotate([180, 0, 0]) tube();
